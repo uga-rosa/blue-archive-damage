@@ -1,0 +1,6 @@
+, Normal, Explosive, Piercing, Mystic, Siege
+Normal, Normal, Normal, Normal, Normal, Normal
+Light, Normal, Weak, Resist, Normal, Normal
+Heavy, Normal, Normal, Weak, Resist, Resist
+Special, Normal, Resist, Normal, Weak, Effective
+Structure, Normal, Resist, Normal, Normal, Weak

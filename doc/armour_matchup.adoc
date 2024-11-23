@@ -1,0 +1,13 @@
+== Armour Matchups
+
+[format="csv",options="header"]
+|===
+include::armour_matchup.csv[]
+|===
+
+=== Damage Multipliers
+
+* Weak:       200%
+* Effective:  150%
+* Normal:     100%
+* Resist:      50%
