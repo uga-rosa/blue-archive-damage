@@ -36,7 +36,14 @@ func (s *Student) SetLevel(level int) {
 	}
 }
 
-func (s *Student) Status() Status {
+func (s *Student) SetStar(star int) {
+	s.Star = star
+	for _, status := range StarDependentStatus {
+		s.BasicStatus[status] = s.StatusInfo[status].Calc(s.Level, s.Star)
+	}
+}
+
+func (s *Student) GetStatus() Status {
 	status := make(Status)
 	buffMap := make(map[StatusName]StatusBuff)
 	for _, buff := range s.Buffs {
@@ -45,7 +52,7 @@ func (s *Student) Status() Status {
 		old.MulValue += buff.MulValue
 		buffMap[buff.Name] = old
 	}
-	for name := range s.BasicStatus {
+	for _, name := range AllStatus {
 		x := s.BasicStatus[name] + s.Bond.Status[name] + s.UniqueWeapon.Status[name] + s.UniqueItem.Status[name]
 		m := 1.0
 		for _, equip := range s.Equipments {

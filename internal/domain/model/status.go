@@ -29,19 +29,20 @@ const (
 	SiegeEfficiency     StatusName = "SiegeEfficiency"
 )
 
-var AllStatus = [20]StatusName{
-	MaxHP, ATK, DEF, Healing, Accuracy, Evasion, Crit, CritRES, CritDMG, CritDMGRES,
-	ArmourPenetration, Stability, NormalAttackRange, CCPower, CCRES, CostRecovery,
-	ExplosiveEfficiency, PiercingEfficiency, MysticEfficiency, SiegeEfficiency,
-}
-
-var LevelDependentStatus = [4]StatusName{MaxHP, ATK, DEF, Healing}
+var (
+	AllStatus = [20]StatusName{
+		MaxHP, ATK, DEF, Healing, Accuracy, Evasion, Crit, CritRES, CritDMG, CritDMGRES,
+		ArmourPenetration, Stability, NormalAttackRange, CCPower, CCRES, CostRecovery,
+		ExplosiveEfficiency, PiercingEfficiency, MysticEfficiency, SiegeEfficiency,
+	}
+	LevelDependentStatus = [4]StatusName{MaxHP, ATK, DEF, Healing}
+	StarDependentStatus  = [3]StatusName{MaxHP, ATK, Healing}
+)
 
 type StatusInfo map[StatusName]StatusInfoItem
 
 // StatusInfoItem is used to calculate the status of the character.
 // Some statuses (MaxHP, ATK, DEF, and Healing) depend on the level and stars.
-// Other statuses use their InitValue as is.
 type StatusInfoItem struct {
 	Name      StatusName
 	InitValue int
